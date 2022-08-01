@@ -15,7 +15,7 @@
    <div class="row">
     <div class="col-md-3 m-auto" style="margin-left:500px;">
         <h3>My Todo App</h3>
-        <form action="">
+        <form action="/add">
             <div class="form-group">
                 <input type="text" class="form-control" name="item" placeholder="Add an item">
             </div>
@@ -34,9 +34,16 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tr>
-
-            </tr>
+            {{ $count= 0 }}
+           @foreach($items as $item)
+                {{ $count = $count+1 }}
+                <tr>
+                    <td>{{ $count }}</td>
+                    <td>{{ $item['item'] }}</td>
+                    <td><a href="">Edit</a></td>
+                    <td><a href="/delete/{{ $item['sno'] }}">Delete</a></td>
+                </tr>
+           @endforeach
         </table>
     </div>
    </div>

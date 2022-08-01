@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/',[ItemController::class,'showItem']);
+Route::get('/add',[ItemController::class,'addItem']);
+Route::get('/delete/{sno}',[ItemController::class,'deleteItem']);
