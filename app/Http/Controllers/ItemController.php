@@ -21,7 +21,21 @@ class ItemController extends Controller
         return view('index',['items'=>$items]);
     }
 
-    function deleteItem(){
-        
+    function deleteItem($sno){
+        $item = Items::find($sno);
+        $item->delete();
+        return redirect('/');
+    }
+
+    function editItem($sno){
+        $items = Items::find($sno);
+        return view('edit',['items'=>$items]);
+    }
+
+    function updateItem(Request $req){
+        $item = Items::find($req->sno);
+        $item-> item = $req->item;
+        $item->save();
+        return redirect('/');
     }
 }

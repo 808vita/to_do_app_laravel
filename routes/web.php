@@ -21,3 +21,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[ItemController::class,'showItem']);
 Route::get('/add',[ItemController::class,'addItem']);
 Route::get('/delete/{sno}',[ItemController::class,'deleteItem']);
+Route::get('/edit/{sno}',[ItemController::class,'editItem']);
+Route::get('/update',[ItemController::class,'updateItem']);
